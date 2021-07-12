@@ -42,24 +42,25 @@ else{
 const mysql = require ('mysql');
 
 let con = mysql.createConnection ({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'shivraj',
+  host: 'remotemysql.com',
+  user: 'hOmbZgvEr4',
+  password: 'HJfkgSyPa9',
+  database: 'hOmbZgvEr4',
 });
 con.connect (err => {
   if (err) throw err;
+  console.log('Connected...')
 });
 
 app.set ('view engine', 'ejs');
 
-app.listen (5000, err => {
+app.listen (5000 || process.env.PORT, err => {
   if (err) throw err;
   console.log ('server running');
 });
 
 app.get ('/', (req, res) => {
-  let retrieve = `select * from noteShare  order by id desc`;
+  let retrieve = `select * from noteshare  order by id desc`;
   con.query (retrieve, (err, data) => {
     if (err) throw err;
     res.render ('noteShare', {data:data});
@@ -88,7 +89,7 @@ app.post ('/', (req, res) => {
 
 
     let imageupload=req.file.filename;
-    let sql = `insert into noteShare (id,chapter,image,donar,subject,topic) values ('','${req.body.chapter}','${imageupload}','${req.body.contributer}','${req.body.subject}','${req.body.topic}')`;
+    let sql = `insert into noteshare (chapter,image,donar,subject,topic) values ('${req.body.chapter}','${imageupload}','${req.body.contributer}','${req.body.subject}','${req.body.topic}')`;
     con.query (sql, (err, data) => {
       if (err) throw err;
 
