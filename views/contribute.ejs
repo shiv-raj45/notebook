@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contribute</title>
+
+</head>
+
+<body>
+    <link rel="stylesheet" href="fontawesome-fre-5.15.2-web/css/all.min.css">
+    
+    <link rel="stylesheet" href="/contribute.css">
+    <link rel="stylesheet" href="/noteShare.css">
+    <script src="https://kit.fontawesome.com/cb1d831df5.js" crossorigin="anonymous"></script>
+
+    <script src="contribute.js" defer></script>
+    <%- include('header.ejs')%>
+    <div class="form">
+        <form method="post" action="/" enctype="multipart/form-data" class="form-inline">
+            <label for="subject">choose Subject</label>
+            <span class="tight"> <i class="fas fa-book"></i>
+                <select name="subject" id="subject">
+                    <option value="physics">physics</option>
+                    <option value="chemistry">chemistry</option>
+                    <option value="Maths">Maths</option>
+                    <option value="English">English</option>
+                    <option value="Nepali">Nepali</option>
+
+                </select></span>
+            <label for="chapter">Enter chapter</label>
+            <span class="tight"> <i class="fas fa-copy"></i>
+                <input type="text" name="chapter" id="chapter" required></span>
+            <label for="topic">Enter topic</label>
+            <span class="tight"> <i class="fas fa-align-left"></i>
+                <input type="text" name="topic" id="topic" class="topic"></span>
+            <label for="Name">Enter your name</label>
+            <span class="tight"> <i class="fas fa-user"></i>
+                <input type="text" name="contributer" id="contributer" required></span>
+            <label for="note">
+
+                <span class="tight"> <i class="fas fa-image"></i> <i class="choose">upload image or pdf</i>
+
+            </label>
+            <input type="file" name="note" id="note" required></span>
+            <input type="submit" value="contribute" class="submit">
+        </form>
+    </div>
+
+    <span>
+
+    </span>
+</body>
+
+</html>
